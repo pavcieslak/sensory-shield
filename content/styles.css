@@ -1,0 +1,155 @@
+/* SensoryShield Content Styling - AuDHD Low-Stimulation Engine */
+
+/* 1. Silent Element Collapse: Completely removes items without layout shift */
+.sensory-shield-collapsed {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. YouTube Shorts & Reels Declutter */
+body.sensory-shield-hide-shorts ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+body.sensory-shield-hide-shorts ytd-reel-shelf-renderer,
+body.sensory-shield-hide-shorts ytd-guide-entry-renderer:has(a[title="Shorts"]),
+body.sensory-shield-hide-shorts ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+body.sensory-shield-hide-shorts yt-tab-shape[tab-title="Shorts"],
+body.sensory-shield-hide-shorts #shorts-container,
+body.sensory-shield-hide-shorts ytd-shorts,
+body.sensory-shield-hide-shorts div[aria-label*="Reels"],
+body.sensory-shield-hide-shorts div[aria-label*="Stories"],
+body.sensory-shield-hide-shorts div[data-pagelet*="Stories"],
+body.sensory-shield-hide-shorts div[data-pagelet*="Reels"] {
+  display: none !important;
+}
+
+/* 3. Notification Badge Muting */
+body.sensory-shield-mute-badges .yt-spec-icon-badge-shape__badge,
+body.sensory-shield-mute-badges .yt-badge-shape--primary,
+body.sensory-shield-mute-badges [aria-label*="unread"],
+body.sensory-shield-mute-badges [aria-label*="notifications"],
+body.sensory-shield-mute-badges .badge-count,
+body.sensory-shield-mute-badges span[data-visualcompletion="ignore-dynamic"]:has(span) {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* 4. Sensory Shock Guard: Suppress hover autoplay and video previews */
+body.sensory-shield-block-hover-preview ytd-video-preview,
+body.sensory-shield-block-hover-preview #preview,
+body.sensory-shield-block-hover-preview #mouseover-overlay,
+body.sensory-shield-block-hover-preview ytd-thumbnail-overlay-loading-preview-renderer {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+/* 5. Muted Visuals / Thumbnail De-saturation (Covers YouTube Home, Search, Sidebar, and Facebook) */
+body.sensory-shield-desaturate ytd-thumbnail,
+body.sensory-shield-desaturate yt-thumbnail-view-model,
+body.sensory-shield-desaturate #thumbnail,
+body.sensory-shield-desaturate a#thumbnail,
+body.sensory-shield-desaturate ytd-rich-item-renderer #thumbnail,
+body.sensory-shield-desaturate ytd-rich-grid-media #thumbnail,
+body.sensory-shield-desaturate ytd-video-renderer #thumbnail,
+body.sensory-shield-desaturate ytd-compact-video-renderer #thumbnail,
+body.sensory-shield-desaturate ytd-grid-video-renderer #thumbnail,
+body.sensory-shield-desaturate .yt-core-image,
+body.sensory-shield-desaturate img.yt-core-image,
+body.sensory-shield-desaturate yt-image,
+body.sensory-shield-desaturate yt-image img,
+body.sensory-shield-desaturate ytd-playlist-thumbnail,
+body.sensory-shield-desaturate div[data-pagelet^="FeedUnit"] img,
+body.sensory-shield-desaturate div[role="feed"] img,
+body.sensory-shield-desaturate div[role="article"] img {
+  filter: saturate(0.38) contrast(0.92) !important;
+  transition: filter 0.25s ease !important;
+}
+
+/* Restore vibrant colors on hover for natural inspection */
+body.sensory-shield-desaturate ytd-rich-item-renderer:hover ytd-thumbnail,
+body.sensory-shield-desaturate ytd-rich-item-renderer:hover yt-thumbnail-view-model,
+body.sensory-shield-desaturate ytd-rich-item-renderer:hover #thumbnail,
+body.sensory-shield-desaturate ytd-video-renderer:hover #thumbnail,
+body.sensory-shield-desaturate ytd-compact-video-renderer:hover #thumbnail,
+body.sensory-shield-desaturate ytd-grid-video-renderer:hover #thumbnail,
+body.sensory-shield-desaturate ytd-thumbnail:hover,
+body.sensory-shield-desaturate yt-thumbnail-view-model:hover,
+body.sensory-shield-desaturate #thumbnail:hover,
+body.sensory-shield-desaturate a#thumbnail:hover,
+body.sensory-shield-desaturate .yt-core-image:hover,
+body.sensory-shield-desaturate yt-image:hover img,
+body.sensory-shield-desaturate div[data-pagelet^="FeedUnit"]:hover img,
+body.sensory-shield-desaturate div[role="article"]:hover img {
+  filter: saturate(1) contrast(1) !important;
+}
+
+/* 6. Rejection & Dysregulation Shield: Hide comments */
+body.sensory-shield-hide-comments #comments,
+body.sensory-shield-hide-comments #comment-teaser,
+body.sensory-shield-hide-comments ytd-comments {
+  display: none !important;
+}
+
+/* 7. Dim Distracting Sidebar */
+body.sensory-shield-dim-sidebar #secondary,
+body.sensory-shield-dim-sidebar #related {
+  opacity: 0.25 !important;
+  filter: grayscale(80%) !important;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+body.sensory-shield-dim-sidebar #secondary:hover,
+body.sensory-shield-dim-sidebar #related:hover {
+  opacity: 1 !important;
+  filter: grayscale(0%) !important;
+}
+
+/* 8. Non-Intrusive Time Anchor Pill */
+.sensory-shield-time-anchor {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: rgba(18, 21, 28, 0.94);
+  color: #e2e8f0;
+  border: 1px solid rgba(82, 183, 136, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999999;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.sensory-shield-time-anchor.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sensory-shield-time-anchor .anchor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #52b788;
+  border-radius: 50%;
+}
+
+.sensory-shield-time-anchor .anchor-close {
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 4px;
+}
+
+.sensory-shield-time-anchor .anchor-close:hover {
+  color: #e2e8f0;
+}

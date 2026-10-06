@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SensoryShield</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="main-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-group">
+        <div class="icon-shield">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <h1>SensoryShield</h1>
+          <p class="subtitle">AuDHD Visual Filter & Calm Browsing</p>
+        </div>
+      </div>
+      <div class="status-badge" id="status-badge">Active</div>
+    </header>
+
+    <!-- Master Switch Card -->
+    <div class="card master-card">
+      <div class="card-info">
+        <span class="card-title">Shield Protection</span>
+        <span class="card-desc">Silent collapse of target content</span>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggle-master" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="tab-sensory" id="btn-tab-sensory">
+        🎛️ Sensory Controls
+      </button>
+      <button class="tab-btn" data-tab="tab-keywords" id="btn-tab-keywords">
+        🏷️ Filter Keywords
+      </button>
+    </div>
+
+    <!-- Tab 1: Sensory Controls -->
+    <div class="tab-pane active" id="tab-sensory">
+      <div class="toggle-list">
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Hide Shorts & Reels</span>
+            <span class="hint-text">Cuts rapid dopamine-trapping micro loops</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-shorts">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Mute Red Badges</span>
+            <span class="hint-text">Removes jarring red notification dots</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-badges">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Block Hover Autoplay</span>
+            <span class="hint-text">No unexpected motion or startle response</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-hover-autoplay">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Calm Titles</span>
+            <span class="hint-text">Converts ALL CAPS clickbait to sentence case</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-calm-titles">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Mute Thumbnails</span>
+            <span class="hint-text">Gentle 45% desaturation until hovered</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-desaturate">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Hide Comments</span>
+            <span class="hint-text">Emotional dysregulation & flame-war shield</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-comments">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Dim Watch Sidebar</span>
+            <span class="hint-text">Calm focus on current video</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-sidebar">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-meta">
+            <span class="label-text">Time Anchor (30m)</span>
+            <span class="hint-text">Subtle break & breathing checkpoint</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-time-anchor">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Filter Keywords -->
+    <div class="tab-pane" id="tab-keywords">
+      <div class="keywords-panel">
+        <div class="section-header">
+          <span class="panel-subtitle">Manage blocked terms & creators</span>
+          <button id="btn-reset-keywords" class="btn-ghost" title="Reset to default terms">Reset Defaults</button>
+        </div>
+        
+        <form id="form-add-keyword" class="keyword-input-group">
+          <input type="text" id="input-keyword" placeholder="Add custom keyword or creator..." autocomplete="off">
+          <button type="submit" class="btn-add">+</button>
+        </form>
+
+        <div class="keyword-chips-container" id="keyword-chips">
+          <!-- Populated securely via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="stat-text">
+        Quietly blocked: <span id="stat-count">0</span> items
+      </div>
+      <div class="support-box">
+        <span>🌱 Support the tool & off-grid build:</span>
+        <a href="https://buymeacoffee.com/pavcieslakm" target="_blank" rel="noopener noreferrer" class="support-link">
+          buymeacoffee.com/pavcieslakm
+        </a>
+      </div>
+      <div class="version-tag">
+        v1.0.0 • 100% Local-First &amp; Private
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
